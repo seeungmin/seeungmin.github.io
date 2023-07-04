@@ -1,7 +1,7 @@
 # Setup
-title: Not Pure Poole
-description: A simple, beautiful, and powerful Jekyll theme for blogs
-url: https://vszhub.github.io
+title: 개발자를 꿈꾸는 대학생
+description: Backend를 공부하고 있습니다.
+url: https://seeungmin.github.io
 avatar: /avatar.jpeg
 paginate: 5
 permalink: pretty
@@ -29,14 +29,14 @@ exclude:
 
 # Optimize Jekyl SEO Tag
 twitter:
-  username: vszhub
-  card: summary
+  username: 
+  card: 
 logo: logo.png
 social:
-  name: Songzi Vong
+  name: Seeunmin Lee
   links:
     - https://twitter.com/vszhub
-    - https://github.com/vszhub
+    - https://github.com/seeungmin
 google_site_verification: xxxxx
 lang: en
 
