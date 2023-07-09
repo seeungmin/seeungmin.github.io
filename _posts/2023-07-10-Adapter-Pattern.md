@@ -2,7 +2,7 @@
 layout: post
 title:  "어댑터 패턴(Adapter Pattern)"
 tags: [Disign Pattern, Structural Pattern]
-date:   2023-07-10 00:00:05 +0900
+date:   2023-07-10 00:05:00 +0900
 toc:  true
 ---
 
