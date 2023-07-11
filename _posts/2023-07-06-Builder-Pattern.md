@@ -89,7 +89,6 @@ public class DefaultStudentBuilder implements StudentBuilder{
 위의 코드는 간단하게 학생의 정보 전체를 입력받도록 구현한 코드이다.
 
 ### 빌더로 만들어낸 결과물
-synchronzied 사용
 
 {% highlight ruby %}
 public class Student{
@@ -112,7 +111,7 @@ public class Student{
 {% endhighlight %}
 빌더로 만들어낸 결과물로 학생 정보를 입력받아 저장하고 출력해주는 역할을 하고 있다.
 
-### 빌더 test
+### 기본코드 test
 {% highlight ruby %}
 public class Client {
     public static void main(String[] args) {
@@ -135,11 +134,9 @@ public class Client {
 ## 단점
 1. 클래스 및 코드 추가 생성
 - 빌더 패턴을 사용하게 되면 빌더 클래스를 생성해야 하기 때문에, 클래스 및 코드의 양이 늘어나게 되고, 만약 프로젝트의 규모가 커지게 된다면 관리하기 어려워질 수 있다.
-2. 가독성 저하
-- 빌더 패턴을 통하여 가독성 향상을 바랄 수 있지만, 오히려 코드가 직관적이지 않아 가독성이 떨어질 수도 있다.
-3. 성능 저하
+2. 성능 저하
 - 빌더 패턴은 객체를 생성하기 위해서 여러 개의 메서드를 호출해야 하기 때문에 프로젝트의 규모가 커지고 빌더패턴이 많이 쓰이게 되는 경우에 성능이 저하될 수 있다.
-4. 의존성 증가
+3. 의존성 증가
 - 객체에 필드를 추가하고나 삭제할 때, 빌더 클래스도 수정을 해야한다.
 - 이것은 빌더 클래스와 객체 클래스 간의 의존성을 높여 유지보수를 어렵게 할 수도 있다.
 
