@@ -134,7 +134,7 @@ public class SWPersonFactory implements PersonFactory{
 
 또한, 같은 Professor와 Student 객체를 생성하지만, 각각의 공장에 따라서 분류별로 객체를 생성하는 것을 볼 수 있다.
 
-### 기본형 test
+### 기본코드 test
 {% highlight ruby %}
 public class Client {
 
