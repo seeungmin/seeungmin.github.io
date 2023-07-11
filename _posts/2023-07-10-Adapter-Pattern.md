@@ -34,12 +34,6 @@ public interface PhoneCharger {
 }
 {% endhighlight %}
 
-{% highlight ruby %}
-public interface IPhoneCharger {
-    public void iPhoneCharge();
-}
-{% endhighlight %}
-
 
 {% highlight ruby %}
 public interface GalaxyCharger {
@@ -47,7 +41,7 @@ public interface GalaxyCharger {
 }
 {% endhighlight %}
 
-각각의 종류에 따른 충전기에 대한 인터페이스다.
+휴대폰 충전기와 갤럭시 충전기 인터페이스이다.
 
 ### 제품 객체
 {% highlight ruby %}
@@ -55,15 +49,6 @@ public class Phone implements PhoneCharger{
     @Override
     public void phoneCharger() {
         System.out.println("휴대폰을 충전중입니다.");
-    }
-}
-{% endhighlight %}
-
-{% highlight ruby %}
-public class IPhone implements IPhoneCharger{
-    @Override
-    public void iPhoneCharge() {
-        System.out.println("아이폰을 충전중입니다.");
     }
 }
 {% endhighlight %}
@@ -82,21 +67,6 @@ public class Galaxy implements GalaxyCharger{
 이때 간단하게 상속받는 메서드는 <mark>...Charge()</mark>로 어떤 휴대폰을 충전하고 있는지 출력만 하게 해주었다.
 
 ### 제품 어댑터
-{% highlight ruby %}
-public class IPhoneAdapter implements PhoneCharger{
-
-    IPhone iPhone;
-
-    public IPhoneAdapter(IPhone iPhone){
-        this.iPhone = iPhone;
-    }
-
-    @Override
-    public void phoneCharger() {
-        iPhone.iPhoneCharge();
-    }
-}
-{% endhighlight %}
 
 {% highlight ruby %}
 public class GalaxyAdapter implements PhoneCharger{
@@ -113,9 +83,9 @@ public class GalaxyAdapter implements PhoneCharger{
 }
 {% endhighlight %}
 
-해당하는 두 어댑터는 전부 PhoneCharger 인터페이스를 상속받고 있다.
+해당하는 어댑터는 PhoneCharger 인터페이스를 상속받고 있다.
 
-휴대폰 충전기 3개는 각각의 충전 타입이 다르기 때문에 기본 충전기로 아이폰이나 갤럭시를 충전하려면 중간에 타입을 변환시켜주는 어댑터가 필요하고 위의 코드들이 각각 아이폰, 갤럭시로 타입을 바꿔주는 어댑터 역할을 해준다.
+휴대폰 충전기와 갤럭시 충전기는 각각의 충전 타입이 다르기 때문에 기본 충전기로 갤럭시를 충전하려면 중간에 타입을 변환시켜주는 어댑터가 필요하고 위의 코드들이 갤럭시로 타입을 바꿔주는 어댑터 역할을 해준다.
 
 
 ### 클라이언트 test
@@ -123,34 +93,28 @@ public class GalaxyAdapter implements PhoneCharger{
 public class Client {
     public static void main(String[] args) {
         Phone phone = new Phone();
-        IPhone iPhone = new IPhone();
         Galaxy galaxy = new Galaxy();
 
-        PhoneCharger iphoneAdapter = new IPhoneAdapter(iPhone);
         PhoneCharger galaxyAdapter = new GalaxyAdapter(galaxy);
 
         phone.phoneCharger();
-        iPhone.iPhoneCharge();
         galaxy.galaxyCharge();
 
-        iphoneAdapter.phoneCharger();
         galaxyAdapter.phoneCharger();
     }
 }
     /** 출력 결과
         * 휴대폰을 충전중입니다.
-        * 아이폰을 충전중입니다.
         * 갤럭시를 충전중입니다.
 
-        * 아이폰을 충전중입니다.
         * 갤럭시를 충전중입니다.
         **/
 {% endhighlight %}
 해당 코드는 어댑터 패턴을 사용하여 서로 호환되지 않는 코드들 중간에서 번역기역할을 해서 호환 가능하도록 만들어주는 코드입니다.
 
-각기 호환되지 않는 Phone, IPhone, Galaxy 객체를 만들어줍니다.
+각기 호환되지 않는 Phone, Galaxy 객체를 만들어줍니다.
 
-Phone 충전기로 IPhone, Galaxy를 충전하기 위해서 각각의 어댑터를 통해 객체를 생성해주었고, 어댑터를 통해서 호환되지 않던 것들을 호환되게 출력하는 것을 보여주고 있습니다.
+Phone 충전기로 Galaxy를 충전하기 위해서 각각의 어댑터를 통해 객체를 생성해주었고, 어댑터를 통해서 호환되지 않던 것들을 호환되게 출력하는 것을 보여주고 있습니다.
 
 ## 단점
 - 기존 코드를 재사용하기 위해서 새로운 인터페이스와 클래스들을 새로 생성해주어야 하기 때문에 코드의 전반적인 복잡성이 증가할 수 있습니다.
