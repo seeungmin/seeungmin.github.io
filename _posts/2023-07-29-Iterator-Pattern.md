@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "반복자 패턴(Iterator Pattern)"
-tags: [Disign Pattern, Structural Pattern]
+tags: [Disign Pattern, Behavioral Pattern]
 date:   2023-07-29 15:30:00 +0900
 toc:  true
 ---
