@@ -95,12 +95,21 @@ public class Client {
 
         context.setStrategy(new BusStrategy());
         context.goSchool();
+
+        context.setStrategy(new Strategy() {
+            @Override
+            public void goSchool() {
+                System.out.println("1회용");
+            }
+        });
+        context.goSchool();
     }
 }
     /** 출력 결과
         * 걸어 갑니다.
         * 자전거를 타고 갑니다.
         * 버스를 타고 갑니다.
+        * 1회용
         **/
 {% endhighlight %}
 
@@ -109,6 +118,8 @@ public class Client {
 전략을 결정해주는 <mark>Context</mark>클래스를 선언한다. 그 후 <mark>setStrategy</mark>메서드를 통해서 여러가지 전략 중 한 가지를 선택해준다.
 
 해당 코드로 보았을 때, 기존 코드의 변경 없이 행위에 대한 전략을 추가가 가능한 것을 알 수 있다.
+
+또한, 마지막의 내용을 보게 되면 익명함수를 통해서 다양한 전략을 새로 생성하지 않고도, 전략 패턴을 사용했을 때와 같은 효과를 받을 수 있는 코드도 작성할 수 있다는 것을 알 수 있습니다.
 
 ## 사용 이유
 
@@ -140,6 +151,7 @@ public class Client {
 ## 단점
 - 알고리즘이 많아질수록 관리가 힘들어진다.
 - 어플리케이션의 알고리즘이 적고, 변경률이 작다면 오히려 복잡해질 수 있다.
+- 현대 많은 프로그래밍 언어에는 익명 함수들의 집합 내에서 알고리즘의 다양성을 구현할 수 있기 때문에 클래스들과 인터페이스를 추가하지 않더라도 전략 패턴과 같이 사용할 수 있습니다.
 
 ## 결론
 
