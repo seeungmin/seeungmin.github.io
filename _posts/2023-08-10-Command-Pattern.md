@@ -15,7 +15,7 @@ toc:  true
 
 ## 커맨드 패턴 구조
 
-![Class Diagram](https://github.com/seeungmin/seeungmin.github.io/blob/main/DesignPatternDiagram/%EC%BB%A4%EB%A7%A8%EB%93%9C%20%ED%8C%A8%ED%84%B4.png?raw=true"Chain Of Responsibility Pattern Class Diagram")
+![Class Diagram](https://github.com/seeungmin/seeungmin.github.io/blob/main/DesignPatternDiagram/%EC%BB%A4%EB%A7%A8%EB%93%9C%20%ED%8C%A8%ED%84%B4.png?raw=true"Command Pattern Class Diagram")
 
 
 
