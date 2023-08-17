@@ -48,7 +48,7 @@ public class Skt implements Agency{
 
     @Override
     public void accept(Visitor visitor) {
-        visitor.visitSkt(this);
+        visitor.visit(this);
     }
 }
 {% endhighlight %}
@@ -62,7 +62,7 @@ public class Lg implements Agency{
 
     @Override
     public void accept(Visitor visitor) {
-        visitor.visitLg(this);
+        visitor.visit(this);
     }
 }
 {% endhighlight %}
@@ -75,28 +75,27 @@ public class Lg implements Agency{
 
 {% highlight ruby %}
 public interface Visitor {
-    public void visitSkt(Skt skt);
+    public void visit(Skt skt);
 
-    public void visitLg(Lg lg);
+    public void visit(Lg lg);
 }
 {% endhighlight %}
 
 visitor가 방문하는 대상에 대한 인터페이스이다.
 
 방문하는 곳에 따라서 <mark>visit()</mark>메서드를 정의한다.
-- 현재는 코드의 가독성을 높이기 위해서 <mark>visitSkt()</mark>와 <mark>visitLg()</mark>로 메서드를 나타내었지만 보통 <mark>visit()</mark>으로 통일한다.
 
 
 ### VisitorA, B 클래스
 {% highlight ruby %}
 public class VisitorA implements Visitor{
     @Override
-    public void visitSkt(Skt skt) {
+    public void visit(Skt skt) {
         System.out.println(skt.getName() + " 통신사 입니다.");
     }
 
     @Override
-    public void visitLg(Lg lg) {
+    public void visit(Lg lg) {
         System.out.println(lg.getName() + " 통신사 입니다.");
     }
 }
@@ -104,12 +103,12 @@ public class VisitorA implements Visitor{
 {% highlight ruby %}
 public class VisitorB implements Visitor{
     @Override
-    public void visitSkt(Skt skt) {
+    public void visit(Skt skt) {
         System.out.println(skt.getName() + " 통신사 입니다.");
     }
 
     @Override
-    public void visitLg(Lg lg) {
+    public void visit(Lg lg) {
         System.out.println(lg.getName() + " 통신사 입니다.");
     }
 }
