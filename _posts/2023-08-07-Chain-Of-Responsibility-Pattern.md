@@ -67,7 +67,7 @@ public abstract class Support {
     }
 
     public final void support(Login login){
-        if (check(login))
+        if (!check(login))
             return;
         else if(next != null)
             next.support(login);
@@ -94,7 +94,7 @@ public abstract class Support {
 public class NoSupport extends Support{
     @Override
     public boolean check(Login login) {
-        return false;
+        return true;
     }
 }
 {% endhighlight %}
@@ -110,10 +110,10 @@ public class IdSupport extends Support{
     @Override
     public boolean check(Login login) {
         if(login.getId().equals("myId")){
-            return false;
+            return true;
         }
         System.out.println("아이디가 잘못되었습니다.");
-        return true;
+        return false;
     }
 }
 {% endhighlight %}
@@ -122,22 +122,23 @@ public class PassWordSupport extends Support{
     @Override
     public boolean check(Login login) {
         if(login.getPassword().equals("myPassword")){
-            return false;
+            return true;
         }
         System.out.println("비밀번호가 잘못되었습니다.");
-        return true;
+        return false;
     }
 }
 {% endhighlight %}
 {% highlight ruby %}
 public class SecurityCodeSupport extends Support{
+
     @Override
     public boolean check(Login login) {
         if(login.getSecurityCode().equals("1234")){
-            return false;
+            return true;
         }
         System.out.println("보안코드가 잘못되었습니다.");
-        return true;
+        return false;
     }
 }
 {% endhighlight %}
